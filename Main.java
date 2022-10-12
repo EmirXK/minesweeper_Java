@@ -1,6 +1,3 @@
-package minesweeper;
-
-
 import java.util.Scanner;
 
 public class Main {
@@ -105,16 +102,18 @@ public class Main {
 
         int k = input[0] + 1;
         int l = input[1] + 1;
-
-        for (int m = k - 1; m < k + 2; m++) {
-            for (int n = l - 1; n < l + 2; n++) {
-                if (playArea[m][n] == 1) {
-                    if (gameMatrix[m-1][n-1] == 0) {
-                        if (isChecked[m - 1][n - 1] == 0) {
-                            isChecked[m - 1][n - 1] = 1;
-                            temp[0] = m-1;
-                            temp[1] = n-1;
-                            openZeros(gameMatrix, temp);
+        
+        if (gameMatrix[input[0]][input[1]] == 0) {
+            for (int m = k - 1; m < k + 2; m++) {
+                for (int n = l - 1; n < l + 2; n++) {
+                    if (playArea[m][n] == 1) {
+                        if (gameMatrix[m-1][n-1] == 0) {
+                            if (isChecked[m - 1][n - 1] == 0) {
+                                isChecked[m - 1][n - 1] = 1;
+                                temp[0] = m-1;
+                                temp[1] = n-1;
+                                openZeros(gameMatrix, temp);
+                            }
                         }
                     }
                 }
